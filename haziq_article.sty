@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Structure
+\usepackage[a4paper, centering]{geometry}
+\usepackage{standalone}
+%\usepackage{import}
+
+% Typeset and appearance
+\usepackage[english]{babel}   % manages structure of paper better
+\usepackage[]{xcolor}  % options: usenames, dvipsnames, svgnames, table
+\usepackage{soul}  % for highlighting text
+\usepackage{url}
+\usepackage{hyperref}
+%\usepackage{fancyhdr}  % headers and footers
+%	\pagestyle{fancy}
+%	\renewcommand{\headrulewidth}{0pt} \renewcommand{\footrulewidth}{0pt}
+% 	\lhead{} 
+% 	\rhead{}
+% 	\chead{\leftmark}
+\usepackage[utf8]{inputenc}  % To get accents on letters
+\usepackage[T1]{fontenc}     % e.g. \"a
+\usepackage{nicefrac}   % To get nice typography for units
+\usepackage{units}      % and fractions
+\let\proglang=\textsf
+\newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
+\usepackage{enumitem}  % replacing enumerate
+
+% Colour-blind safe pallete
+\definecolor{colblu}{RGB}{51,102,170}
+\definecolor{colcya}{RGB}{17,170,153}
+\definecolor{colgre}{RGB}{102,170,85}
+\definecolor{colgyl}{RGB}{204,204,85}
+\definecolor{colgry}{RGB}{119,119,119}
+\definecolor{colpur}{RGB}{153,34,136}
+\definecolor{colred}{RGB}{238,51,51}
+\definecolor{colora}{RGB}{238,119,34}
+\definecolor{colyel}{RGB}{255,238,51}
+
+% Coding
+%\usepackage{verbatim}
+%\usepackage{moreverb}
+%	\let\verbatiminput=\verbatimtabinput
+%	\def\verbatimtabsize{4\relax} 
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+%\usepackage{algorithmicx}
+\newcommand{\code}[1]{\texttt{#1}}
+
+% Mathematics
+\usepackage{amsmath}
+\allowdisplaybreaks[1]
+\usepackage{amssymb}
+\usepackage{amsthm}
+	\begingroup
+		\makeatletter
+   			\@for\theoremstyle:=definition,remark,plain\do{%
+     			\expandafter\g@addto@macro\csname th@\theoremstyle\endcsname{%
+        		\addtolength\thm@preskip\parskip
+     		}%
+   		}
+	\endgroup
+  \newtheorem{thm}{Theorem}
+  \newtheorem{theorem}{Theorem}
+%  \theoremstyle{definition}
+  \newtheorem{defn}{Definition}
+  \newtheorem{definition}[defn]{Definition}
+  \newtheorem{lem}{Lemma}%[section]
+  \newtheorem{lemma}[lem]{Lemma}%[section]
+  \newtheorem{corr}{Corollary}%[section]
+  \newtheorem{corrolary}[corr]{Corollary}%[section]
+  \newtheorem{remark}{Remark}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}  
+\usepackage{dsfont}  % for indicator variables \mathsds{1}
+\usepackage{bm}  % for better bold script
+\usepackage[makeroom]{cancel}
+	\renewcommand{\CancelColor}{\color{gray}}
+\usepackage{mathtools}
+	
+% Bibliography
+%\usepackage[longnamesfirst]{natbib}
+%  \bibpunct{(}{)}{;}{a}{,}{,~}
+%  \addto\captionsenglish{\renewcommand{\bibname}{References}}  % change the name of Bibliography section
+\usepackage[style=authoryear, firstinits=true, maxcitenames=2, maxbibnames=99, backend=biber]{biblatex}
+\setlength\bibitemsep{1.5\itemsep}
+
+% Paragraph settings
+\usepackage{parskip}  
+\setlength{\parindent}{15pt}  % default indentation
+
+% Line spacing
+\usepackage{setspace}\singlespacing % or \onehalfspacing or \doublespacing
+
+% Figures
+\usepackage{float}  
+\usepackage{graphicx}
+%\usepackage{subfig} 
+\usepackage{subcaption}  % an alternative package for sub-figures (preferred)
+	\newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}  % knitr
+\usepackage{rotfloat}	
+\usepackage{tikz}
+\usetikzlibrary{fit,positioning,calc}
+
+% Tables
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+%\usepackage{dcolumn}  % align columns on a decimal point
+\newcommand{\Top}{\rule{0pt}{2.6ex}}  % Top strut for tables
+\newcommand{\Bot}{\rule[-1.2ex]{0pt}{0pt}}  % Top strut for tables
+\usepackage{booktabs}
+\usepackage{colortbl}
+
+% Margin notes
+\usepackage{marginnote}
+\usepackage{mparhack}  % these two packages provides some fixes to marginnote
+\usepackage{marginfix}
+
+% Miscellaneous
+\usepackage{lipsum} 
+\usepackage{ifthen}
+\usepackage{xparse}
+\usepackage[linecolor=yellow, backgroundcolor=yellow!25, bordercolor=yellow, textsize=footnotesize]{todonotes}
+  \newcounter{todocounter}
+  \newcommand{\todonum}[2][To-do in Section \thesubsection]{\stepcounter{todocounter}\todo[caption={\thetodocounter. #1}]{\thetodocounter. #2}{}}
+  \newcommand{\notodo}[1][To-do in Section \thesubsection]{\stepcounter{todocounter}\todo[caption={\thetodocounter. #1}, noline, backgroundcolor=white, bordercolor=white]{}{}}
+  \DeclareDocumentCommand{\hltodo}{ o m o }{
+    \IfNoValueTF{#1}
+      {\IfNoValueTF{#3}{\hl{#2}\notodo[#2]}{\hl{#2}\notodo[#3]}}
+      {\IfNoValueTF{#3}{\hl{#2}\todonum[#1]{#1}}{\hl{#2}\todonum[#3]{#1}}}
+	}
+\usepackage{pifont}
+  \newcommand{\cmark}{\ding{51}}  % check mark
+  \newcommand{\xmark}{\ding{55}}  % x mark
+

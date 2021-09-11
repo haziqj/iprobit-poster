@@ -1,0 +1,12 @@
+.texpadtmp/
+
+.DS_Store
+
+*.zip
+
+.RData
+
+.Rhistory
+
+.Rproj.user/
+R/data/btb.Rdata

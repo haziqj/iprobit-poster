@@ -1,0 +1,315 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Beamer poster style for Jacobs Landscape Poster
+%
+% Originally created by:
+% Computational Physics and Biophysics Group, Jacobs University
+% https://teamwork.jacobs-university.de:8443/confluence/display/CoPandBiG/LaTeX+Poster
+%
+% Modified by:
+% Nathaniel Johnston (nathaniel@njohnston.ca)
+% http://www.nathanieljohnston.com/2009/08/latex-poster-template/
+%
+% Abraham Nunes (nunes <at> dal <dot> ca)
+%
+% Haziq Jamil
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}		% for drawing the nice rounded boxes
+  \usetikzlibrary{arrows,backgrounds}
+%\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{lipsum}
+\usepackage[T1]{fontenc}
+\usepackage{ragged2e}
+\usepackage{graphicx}  % Required for including images
+\usepackage{booktabs} % Top and bottom rules for tables
+\usepackage[ddmmyyyy]{datetime}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% COLOURS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{lgreen} 	{RGB}{180,210,100}
+\definecolor{dblue}  	{RGB}{20,66,129}
+\definecolor{ddblue} 	{RGB}{11,36,69}
+\definecolor{lred}   	{RGB}{220,0,0}
+\definecolor{nred}   	{RGB}{224,0,0}
+\definecolor{norange}	{RGB}{230,120,20}
+\definecolor{nyellow}	{RGB}{255,221,0}
+\definecolor{ngreen} 	{RGB}{98,158,31}
+\definecolor{dgreen} 	{RGB}{78,138,21}
+\definecolor{nblue}  	{RGB}{28,130,185}
+\definecolor{jblue}  	{RGB}{20,50,100}
+\definecolor{dalred}	{RGB}{254,84,66}
+\definecolor{dalyellow}	{RGB}{251,255,34}
+\definecolor{dalblue}	{RGB}{0,191,255}
+\definecolor{dalgreen}	{RGB}{60,179,113}
+\definecolor{dalpurple}	{RGB}{139,0,139}
+\definecolor{dalgrey}	{RGB}{112,115,114}
+\definecolor{dalgold}	{RGB}{242,172,0}
+\definecolor{FUblue}{gray}{0.60}
+\definecolor{FUgreen}{RGB}{153,204,0}
+\definecolor{FUred}{RGB}{204,0,0}
+\definecolor{FUorange}{RGB}{255,153,51}
+\definecolor{FUgray}{gray}{0.6}
+\definecolor{text-grey}{rgb}{0.45, 0.45, 0.45} % grey text on white background
+\definecolor{bg-grey}{rgb}{0.66, 0.65, 0.60} % grey background (for white text)
+\definecolor{fu-blue}{RGB}{0, 0, 0} % blue text
+\definecolor{fu-green}{RGB}{153, 204, 0} % green text
+\definecolor{fu-red}{RGB}{204, 0, 0} % red text (used by \alert)
+\definecolor{colgrey}{RGB}{112,115,114}
+\definecolor{colred}{RGB}{240,35,54}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% POSTER SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\makeruleinbox}{{\usebeamercolor[bg]{block alerted title}\centering\hspace*{-0.7cm}\rule{\inboxrule}{0.5cm}}}
+
+\usecaptiontemplate{\small\structure{\insertcaptionname~\insertcaptionnumber:}~\insertcaption} % A fix for figure numbering
+
+% Spacing before and inside list environments to add white space before lists and between items inside lists
+\makeatletter
+\def\@listi{\leftmargin\leftmarginii
+\topsep 0.8ex % Spacing before lists
+\parsep 0\p@ \@plus\p@
+\itemsep 5pt} % Spacing between items
+\makeatother
+
+% set the basic colors
+\setbeamercolor{palette primary}   {fg=black,bg=white}
+\setbeamercolor{palette secondary} {fg=black,bg=white}
+\setbeamercolor{palette tertiary}  {bg=black,fg=white}
+\setbeamercolor{palette quaternary}{fg=black,bg=white}
+\setbeamercolor{structure}{fg=black}
+\setbeamercolor{titlelike}         {bg=black,fg=white}
+\setbeamercolor{frametitle}        {bg=white,fg=black}
+\setbeamercolor{cboxb}{fg=black,bg=black}
+\setbeamercolor{cboxr}{fg=black,bg=red}
+
+% set colors for itemize/enumerate
+\setbeamercolor{item}{fg=black}
+\setbeamercolor{item projected}{fg=white,bg=black}
+
+% set colors for blocks
+\setbeamercolor{block title}{fg=black,bg=white}
+\setbeamercolor{block body}{fg=black,bg=white}
+
+% set colors for alerted blocks (blocks with frame)
+\setbeamercolor{block alerted title}{fg=white,bg=black}
+\setbeamercolor{block alerted body}{fg=black,bg=white}
+
+% set the fonts
+\usefonttheme{professionalfonts}
+\usepackage[no-math]{fontspec}
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont{San Francisco Text Light}
+\setsansfont{San Francisco Text Light}
+\newfontfamily\sfdtitle{San Francisco Display Semibold}
+\newfontfamily\sftl{San Francisco Text Light}
+%\usepackage{mathspec}
+%\setmathfont(Digits,Latin)[Scale=MatchLowercase]{San Francisco Text Light}
+%\renewcommand{\sfdefault}{phv}
+%%\renewcommand{\rmdefault}{lmr}
+%\setbeamerfont{section in head/foot}{series=\sffamily, shape=\scshape}
+\setbeamerfont{block title}{family=\sfdtitle}
+\setbeamerfont{block alerted title}{series=\bfseries}
+%\setbeamerfont{frametitle}{shape=\scshape}
+\setbeamerfont{frametitle}{size=\Large}
+\setbeamerfont{block body}{series=\mdseries}
+
+
+
+% set some beamer theme options
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{blocks}[width=0.0]
+\beamertemplatenavigationsymbolsempty
+
+% set bibliography style
+\setbeamertemplate{bibliography item}[text]
+\setbeamercolor{bibliography item}{fg=black,bg=white}
+\setbeamercolor{bibliography entry author}{fg=black,bg=white}
+\setbeamercolor{bibliography item}{fg=black,bg=white}
+
+% define some length variables that are used by the template
+\newlength{\inboxwd}
+\newlength{\iinboxwd}
+\newlength{\inboxrule}
+\makeatletter
+\makeatother
+
+%==============================================================================
+% build the poster title
+%==============================================================================
+\setbeamertemplate{headline}{
+  \leavevmode
+  % some padding = 2cm
+  % padding + name + title + logo + padding = \paperwidth
+  % name:title:logo in the proportion 0.15:0.70:0.15
+  % name & logo column = (\paperwidth - 4cm) * 0.15 = 172.35mm
+  % title column = 804.3
+  
+  \vspace{2cm}
+  \begin{columns}[totalwidth=\paperwidth]
+    
+    \begin{column}{0.015\paperwidth}\end{column}
+    
+    \begin{column}{0.14496\paperwidth}
+      \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[0.4ex]}
+	  \usebeamercolor{institute in headline}{\color{fg}\normalsize{\insertinstitute}\\[1ex]}
+    \end{column}
+
+    \begin{column}{0.67\paperwidth}
+      \vspace{-1.8cm}
+	  \begin{center}
+	    \usebeamercolor{title in headline}{\sfdtitle\color{fg}\Huge{\inserttitle}}\\[1.4em]
+	        {\color{fg}\normalsize{[Updated: \today]}}
+	  \end{center}
+    \end{column}
+    
+    \begin{column}{0.146\paperwidth}
+      \vspace{0.4cm}
+      \includegraphics[scale=0.1]{figure/lse}  
+    \end{column}
+    
+    \begin{column}{0.0168\paperwidth}\end{column}
+
+  \end{columns}
+  
+  \vspace{0.5cm}
+  \hspace{0.55in}
+  \begin{beamercolorbox}[wd=45.5in,ht=0.08ex,colsep=0.15cm]{cboxb}\end{beamercolorbox}
+
+% \vspace{0.1in}
+ 
+}
+
+\newcommand{\spacercolumn}{\begin{column}{\sepwid}\end{column}} % Empty spacer column
+
+\setlength{\belowcaptionskip}{-1.5ex} % White space under figures
+%\setlength\belowdisplayshortskip{2ex} % White space under equations
+
+% Block definition
+\setbeamertemplate{block begin}
+{
+%  \par\vskip\medskipamount
+  \begin{beamercolorbox}[colsep*=0ex,dp={2ex},center]{block title}
+    \usebeamerfont{block title}\Large\insertblocktitle
+  \end{beamercolorbox}
+  {\parskip0pt\par}
+  \ifbeamercolorempty[bg]{block title}
+  {}
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}
+  \usebeamerfont{block body}
+  \begin{beamercolorbox}[colsep*=0ex,vmode]{block body}
+  \justifying
+}
+
+\setbeamertemplate{block end}
+{
+  \end{beamercolorbox}
+  \vspace*{1.8ex}
+}
+
+% Alert block definition (with frame)
+\setbeamertemplate{block alerted begin}
+{
+  \par\vskip\medskipamount
+  \begin{beamercolorbox}[sep=0ex,rounded=true,center,dp={2ex}]{block alerted title}
+    \vskip0.01cm
+    \usebeamerfont{block title}\Large\insertblocktitle
+  \end{beamercolorbox}
+  {\parskip0pt\par}
+  \usebeamerfont{block body}
+  \vskip-0.8cm
+  \begin{beamercolorbox}[sep=0.5cm, rounded=true,center]{block alerted title}
+  \setlength{\inboxwd}{\linewidth}
+  \addtolength{\inboxwd}{-1cm}
+  \begin{beamercolorbox}[rounded=true,wd={\inboxwd},center]{block alerted body}
+  \setlength{\iinboxwd}{\inboxwd}
+  \setlength{\inboxrule}{\inboxwd}
+  \addtolength{\iinboxwd}{-0.5cm}
+  \addtolength{\inboxrule}{0.5cm}
+  \begin{center}
+  \begin{minipage}{\iinboxwd}
+  \justifying
+}
+
+\setbeamertemplate{block alerted end}
+{
+  \vspace{-0.5cm}
+  \end{minipage}
+  \end{center}
+  \end{beamercolorbox}
+  \end{beamercolorbox}
+  \vspace*{1.8ex}
+}
+
+% Left-aligned text within math environment
+% https://tex.stackexchange.com/questions/59995/left-aligned-text-inside-an-equation
+\makeatletter
+\newif\if@gather@prefix 
+\preto\place@tag@gather{% 
+  \if@gather@prefix\iftagsleft@ 
+    \kern-\gdisplaywidth@ 
+    \rlap{\gather@prefix}% 
+    \kern\gdisplaywidth@ 
+  \fi\fi 
+} 
+\appto\place@tag@gather{% 
+  \if@gather@prefix\iftagsleft@\else 
+    \kern-\displaywidth 
+    \rlap{\gather@prefix}% 
+    \kern\displaywidth 
+  \fi\fi 
+  \global\@gather@prefixfalse 
+} 
+\preto\place@tag{% 
+  \if@gather@prefix\iftagsleft@ 
+    \kern-\gdisplaywidth@ 
+    \rlap{\gather@prefix}% 
+    \kern\displaywidth@ 
+  \fi\fi 
+} 
+\appto\place@tag{% 
+  \if@gather@prefix\iftagsleft@\else 
+    \kern-\displaywidth 
+    \rlap{\gather@prefix}% 
+    \kern\displaywidth 
+  \fi\fi 
+  \global\@gather@prefixfalse 
+} 
+\def\math@cr@@@align{%
+  \ifst@rred\nonumber\fi
+  \if@eqnsw \global\tag@true \fi
+  \global\advance\row@\@ne
+  \add@amps\maxfields@
+  \omit
+  \kern-\alignsep@
+  \if@gather@prefix\tag@true\fi
+  \iftag@
+    \setboxz@h{\@lign\strut@{\make@display@tag}}%
+    \place@tag
+  \fi
+  \ifst@rred\else\global\@eqnswtrue\fi
+  \global\lineht@\z@
+  \cr
+}
+\newcommand*{\beforetext}[1]{% 
+  \ifmeasuring@\else
+  \gdef\gather@prefix{#1}% 
+  \global\@gather@prefixtrue 
+  \fi
+} 
+\makeatother
